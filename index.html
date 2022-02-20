@@ -1,0 +1,328 @@
+<!-- HTML FILE -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HTML HEAD --> 
+<head>
+
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ADDED FONT FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+
+    <!-- TITLE AND FAVICON -->
+    <title>TYV | Trust Your Vendor</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+
+    <!-- ADDED CSS FILE -->
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<!-- HTML BODY -->
+<body>
+
+    <!-- LOADER -->
+    <div class="loaderbg">
+        <div class="loader"></div>
+    </div>
+
+    <!-- HAMBURGER -->
+    <div class="ham">
+
+        <!-- HAMBURGER CHECKBOX -->
+        <input type="checkbox" id="check">
+        <label class="click" for="check"></label>
+        <label class="hamBurger" for="check"></label>
+
+        <!-- HAMBURGER MENU -->
+        <div class="navMenu">
+
+            <!-- SOCIAL MEDIA ICONS TO FOLLOW -->
+
+            <!-- TWITTER -->
+            <div class="appear">
+                <label class="icons">
+                    <input type="checkbox" class="logo">
+                    <div class="icon"><i class="fa fa-twitter"></i></div>
+                </label>
+            </div>
+
+            <!-- FACEBOOK -->
+            <div class="appear">
+                <label class="icons">
+                    <input type="checkbox" class="logo">
+                    <div class="icon"><i class="fa fa-facebook-square"></i></div>
+                </label>
+            </div>
+
+            <!-- DRIBBBLE -->
+            <div class="appear">
+                <label class="icons">
+                    <input type="checkbox" class="logo">
+                    <div class="icon"><i class="fa fa-dribbble"></i></div>
+                </label>
+            </div>
+
+            <!-- INSTAGRAM -->
+            <div class="appear">
+                <label class="icons">
+                    <input type="checkbox" class="logo">
+                    <div class="icon"><i class="fa fa-instagram"></i></div>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <main>
+
+        <!-- TYV VENDOR FORM -->
+        <form id="tyv" class="tyv glass">
+
+            <!-- USER DETAILS -->
+            <fieldset>
+
+                <!-- TITLE -->
+                <legend> &nbsp; IDENTIFY YOURSELF &nbsp; </legend>
+
+                <!-- CONTENTS -->
+                <div class="flex">
+
+                    <div class="databox">
+                        <input autocomplete="off" name="name" class="box" type="text" title="Name must lie within 20 characters." pattern="[a-zA-Z0-9_ ]{1,20}" required>
+                        <label class="label"><i class="fa-solid fa fa-user"></i> &nbsp;Your Name</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" name="id" class="box" type="text" title="Your Organisation ID has 202XABCD1234P format." pattern="202\d[A-Z][A-Z\d][A-Z][A-Z]\d\d\d\dP" required>
+                        <label class="label"><i class="fa-solid fa fa-id-card"></i> &nbsp;Your Org ID</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" name="phone" class="box" type="tel" title="Registered Mobile Numbers follow XXXXX XXXXX formats." pattern="[0-9]{10,10}" required>
+                        <label class="label">&nbsp;<i class="fa-solid fa fa-mobile"></i> &nbsp;Mobile Number</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" name="org" class="box" type="text" title="Your Organisation's Name must lie within 30 characters." pattern="[a-zA-Z0-9_ ]{1,30}" required>
+                        <label class="label"><i class="fa-solid fa fa-briefcase"></i> &nbsp;Organisation Name</label>
+                    </div>
+
+                    <!-- INFO BOX -->
+                    <div class="info">
+                        This information is used for verification only. TYV does not save or use this data
+                        further.
+                    </div>
+
+                </div> <br>
+
+                <!-- CLEAR BUTTON -->
+                <input class="btn" type="reset" value="Clear All">
+
+            </fieldset> <br> <br>
+
+            <!-- VENDOR LIST -->
+            <fieldset>
+
+                <!-- TITLE -->
+                <legend> &nbsp; VENDOR PERFORMANCE &nbsp; </legend>
+
+                <!-- CONTENTS -->
+                <div class="flex">
+
+                    <div class="databox">
+                        <input autocomplete="off" class="box" name="demand" type="number" title="Mention your Order in Kgs." required>
+                        <label class="label"><i class="fa-solid fa fa-circle"></i>&nbsp; Quantity Demanded (Kgs)</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" class="box" name="receive" type="number" title="Mention net Order fulfilled in Kgs." required>
+                        <label class="label"><i class="fa-solid fa fa-chart-pie"></i>&nbsp; Quantity Received (Kgs)</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" class="box" name="return" type="number" title="Mention net Order returned in Kgs." required>
+                        <label class="label"><i class="fa-solid fa fa-chart-pie"></i>&nbsp; Quantity Returned (Kgs)</label>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" placeholder="Expected Delivery Date" class="box" name="expected" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" title="Mention the Expected Date of delivery." required>
+                    </div>
+
+                    <div class="databox">
+                        <input autocomplete="off" placeholder="Actual Receiving Date" class="box" name="actual" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" title="Mention the Actual Date of delivery." required>
+                    </div><br>
+
+                    <!-- MESSAGE BOX -->
+                    <div id="msg" class="hidden">
+
+                        <div>
+                            <i class="fa-solid fa fa-thumbs-up"></i>&nbsp; Updated
+                        </div>
+
+                        <div>
+                            Scroll Below for Records.
+                        </div> <br>
+
+                    </div>
+                </div>
+
+                <!-- FORM BUTTONS -->
+                <input class="btn" type="submit" value="Save Data">
+                <input class="btn" type="reset" value="Clear Data">
+
+            </fieldset>
+
+            <!-- FLOATING DIVS -->
+            <div class="glass side side1"></div>
+            <div class="glass side side2"></div>
+            <div class="glass side side3"></div>
+            <div class="glass side side4"></div>
+
+        </form>
+
+        <!-- COUNTER BOXES -->
+        <div class="extra">
+
+            <div class="counterBox appear">
+                <i class="fa fa-truck"></i>
+                <span class="num" countUpto="320">000</span>
+                <span class="text">Vendors</span>
+            </div>
+
+            <div class="counterBox appear">
+                <i class="fa-solid fa fa-users"></i>
+                <span class="num" countUpto="234">000</span>
+                <span class="text">Customers</span>
+            </div>
+
+            <div class="counterBox appear">
+                <i class="fa fa-box-open"></i>
+                <span class="num" countUpto="560">000</span>
+                <span class="text">Packages</span>
+            </div>
+
+            <div class="counterBox appear">
+                <i class="fa fa-comments"></i>
+                <span class="num" countUpto="209">000</span>
+                <span class="text">Comments</span>
+            </div>
+
+        </div>
+
+        <!-- RECORDS -->
+        <div class="records glass">
+
+            <!-- TOP BANNER -->
+            <div class="banner">
+
+                <!-- HEADING -->
+                <div class="title">
+                    <span class="appear">R</span>
+                    <span class="appear">E</span>
+                    <span class="appear">C</span>
+                    <span class="appear">O</span>
+                    <span class="appear">R</span>
+                    <span class="appear">D</span>
+                    <span class="appear">S</span>
+                </div>
+
+                <!-- SEARCH ITEMS -->
+                <form class="box" id="search">
+
+                    <!-- PROMPT -->
+                    <h2 class="prev">SEARCH YOUR RECORDS</h2>
+                    <h2 class="next">SEARCH</h2>
+
+                    <!-- SEARCH BAR -->
+                    <div class="find">
+                        <input name="searchList" class="searchList" type="text" placeholder="Type Here">
+                        <i class="fa-solid fa fa-search"></i>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- VENDOR RECORDS -->
+            <div class="list">
+
+                <!-- TITLE -->
+                <h1 class="title">VENDOR LIST</h1>
+
+                <!-- CONTENTS -->
+                <ul class="grid">
+
+                    <li class="appear">
+                        <div>Submitted By: Sarthak</div>
+                        <div>From: BITS</div>
+                        <div>Qty Demanded: 2000</div>
+                        <div>Qty Received: 1200</div>
+                        <div>Qty Returned: 800</div>
+                        <div>Expected: 2022-02-11</div>
+                        <div>Received: 2022-02-16</div>
+                        <div class="perm">FIXED RECORD</div>
+                    </li>
+
+                    <li class="appear">
+                        <div>Submitted By: Saksham</div>
+                        <div>From: BITS</div>
+                        <div>Qty Demanded: 4000</div>
+                        <div>Qty Received: 2000</div>
+                        <div>Qty Returned: 2000</div>
+                        <div>Expected: 2022-03-03</div>
+                        <div>Received: 2022-02-05</div>
+                        <div class="perm">FIXED RECORD</div>
+                    </li>
+
+                    <li class="appear">
+                        <div>Submitted By: Alvin</div>
+                        <div>From: BITS</div>
+                        <div>Qty Demanded: 3200</div>
+                        <div>Qty Received: 700</div>
+                        <div>Qty Returned: 2500</div>
+                        <div>Expected: 2021-09-01</div>
+                        <div>Received: 2021-09-06</div>
+                        <div class="perm">FIXED RECORD</div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- HIDE BUTTON -->
+            <div class="title hide">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                HIDE ALL RECORDS
+            </div>
+
+            <!-- FLOATING DIVS -->
+            <div class="glass side side1"></div>
+            <div class="glass side side2"></div>
+            <div class="glass side side3"></div>
+            <div class="glass side side4"></div>
+            <div class="glass side side1"></div>
+            <div class="glass side side2"></div>
+            <div class="glass side side3"></div>
+            <div class="glass side side4"></div>
+
+        </div>
+    </main>
+
+</body>
+
+<!-- ADDED JS FILES -->
+<script src="index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script> setTimeout(function () { $('.loaderbg').fadeToggle(); }, 3500);</script>
+<script src="https://kit.fontawesome.com/fd5018a833.js" crossorigin="anonymous"></script>
+
+</html>
