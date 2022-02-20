@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // UPDATE ATTRIBUTES
       li.classList.add('appear');
       addDelete.classList.add('delete');
-      addDelete.setAttribute('id', `${i - 1}`);
+      addDelete.setAttribute('id', `${i}`);
 
       // APPEND TO PARENT
       li.appendChild(addName);
@@ -61,9 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (element.target.className == 'delete') {
       const deleteLi = element.target.parentElement;
 
-      // DELETE FROM DOM AND STORAGE
-      deleteLi.parentNode.removeChild(deleteLi);
-      localStorage.removeItem(`${element.target.id}`);
+      if (confirm('Are you sure about this action?\nThis item would be deleted.')) {
+        
+        // DELETE FROM DOM AND STORAGE
+        deleteLi.parentNode.removeChild(deleteLi);
+        localStorage.removeItem(`${element.target.id}`);
+      }
     }
   });
 
@@ -74,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // ON SUBMISSION
     element.preventDefault();
     msg.classList.remove('hidden');
+    setTimeout(() => {
+      msg.classList.add('hidden');
+    }, 5000);
 
     // VARIABLE DECLARATION
     const nameValue = addForm['name'].value;

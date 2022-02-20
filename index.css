@@ -509,7 +509,7 @@ h2{
     align-items: center;
 }
 #check:checked + .click + .hamBurger + .navMenu{
-    animation: yesChecked 0.3s linear both;
+    animation: yesChecked 0.2s linear both;
     position: fixed;
 }
 @keyframes yesChecked{
@@ -542,11 +542,11 @@ h2{
     cursor: pointer;
 }
 .icons .icon{
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
     background: #18191f;
     color: #555;
-    font-size: 2rem;
+    font-size: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
