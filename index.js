@@ -1,46 +1,43 @@
 // JS FILE
 
 // RECORDS MANIPULATION
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener("DOMContentLoaded", function () {
   // VARIABLE DECLARATION
-  const list = document.querySelector('.grid');
-  const msg = document.querySelector('#msg');
+  const list = document.querySelector(".grid");
+  const msg = document.querySelector("#msg");
   const forms = document.forms;
   let key = 0;
 
   // UPDATE RECORDS LIST
   for (let i = 0; i < 1000; i++) {
-
     // GETTING LOCAL STORAGE ITEMS
     let currItem = JSON.parse(localStorage.getItem(i));
     if (currItem != null) {
-
       // CREATE NEW FIELDS
-      const li = document.createElement('li');
-      const addName = document.createElement('div');
-      const addOrg = document.createElement('div');
-      const addDemd = document.createElement('div');
-      const addRecd = document.createElement('div');
-      const addRetd = document.createElement('div');
-      const addExpt = document.createElement('div');
-      const addActu = document.createElement('div');
-      const addDelete = document.createElement('div');
+      const li = document.createElement("li");
+      const addName = document.createElement("div");
+      const addOrg = document.createElement("div");
+      const addDemd = document.createElement("div");
+      const addRecd = document.createElement("div");
+      const addRetd = document.createElement("div");
+      const addExpt = document.createElement("div");
+      const addActu = document.createElement("div");
+      const addDelete = document.createElement("div");
 
       // UPDATE INNER TEXT
-      addName.textContent = 'Submitted By: ' + currItem.nameL;
-      addOrg.textContent = 'From: ' + currItem.orgL;
-      addDemd.textContent = 'Qty Demanded: ' + currItem.demandL;
-      addRecd.textContent = 'Qty Received: ' + currItem.receiveL;
-      addRetd.textContent = 'Qty Returned: ' + currItem.returnL;
-      addExpt.textContent = 'Expected: ' + currItem.expectedL;
-      addActu.textContent = 'Received: ' + currItem.actualL;
-      addDelete.textContent = 'Delete';
+      addName.textContent = "Submitted By: " + currItem.nameL;
+      addOrg.textContent = "From: " + currItem.orgL;
+      addDemd.textContent = "Qty Demanded: " + currItem.demandL;
+      addRecd.textContent = "Qty Received: " + currItem.receiveL;
+      addRetd.textContent = "Qty Returned: " + currItem.returnL;
+      addExpt.textContent = "Expected: " + currItem.expectedL;
+      addActu.textContent = "Received: " + currItem.actualL;
+      addDelete.textContent = "Delete";
 
       // UPDATE ATTRIBUTES
-      li.classList.add('appear');
-      addDelete.classList.add('delete');
-      addDelete.setAttribute('id', `${i}`);
+      li.classList.add("appear");
+      addDelete.classList.add("delete");
+      addDelete.setAttribute("id", `${i}`);
 
       // APPEND TO PARENT
       li.appendChild(addName);
@@ -56,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // DELETE RECORDS
-  list.addEventListener('click', (element) => {
-
-    if (element.target.className == 'delete') {
+  list.addEventListener("click", (element) => {
+    if (element.target.className == "delete") {
       const deleteLi = element.target.parentElement;
 
-      if (confirm('Are you sure about this action?\nThis item would be deleted.')) {
-        
+      if (
+        confirm("Are you sure about this action?\nThis item would be deleted.")
+      ) {
         // DELETE FROM DOM AND STORAGE
         deleteLi.parentNode.removeChild(deleteLi);
         localStorage.removeItem(`${element.target.id}`);
@@ -71,24 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // CREATE NEW RECORDS
-  const addForm = forms['tyv'];
-  addForm.addEventListener('submit', (element) => {
-
+  const addForm = forms["tyv"];
+  addForm.addEventListener("submit", (element) => {
     // ON SUBMISSION
     element.preventDefault();
-    msg.classList.remove('hidden');
+    msg.classList.remove("hidden");
     setTimeout(() => {
-      msg.classList.add('hidden');
+      msg.classList.add("hidden");
     }, 5000);
 
     // VARIABLE DECLARATION
-    const nameValue = addForm['name'].value;
-    const orgValue = addForm['org'].value;
-    const demandValue = addForm['demand'].value;
-    const receiveValue = addForm['receive'].value;
-    const returnValue = addForm['return'].value;
-    const expectedValue = addForm['expected'].value;
-    const actualValue = addForm['actual'].value;
+    const nameValue = addForm["name"].value;
+    const orgValue = addForm["org"].value;
+    const demandValue = addForm["demand"].value;
+    const receiveValue = addForm["receive"].value;
+    const returnValue = addForm["return"].value;
+    const expectedValue = addForm["expected"].value;
+    const actualValue = addForm["actual"].value;
 
     // DATA FOR LOCAL STORAGE
     let addLocal = {
@@ -98,37 +94,37 @@ document.addEventListener('DOMContentLoaded', function () {
       receiveL: receiveValue,
       returnL: returnValue,
       expectedL: expectedValue,
-      actualL: actualValue
+      actualL: actualValue,
     };
 
     // UPDATE LOCAL STORAGE
     localStorage.setItem(key++, JSON.stringify(addLocal));
 
     // CREATE NEW FIELDS
-    const li = document.createElement('li');
-    const addName = document.createElement('div');
-    const addOrg = document.createElement('div');
-    const addDemd = document.createElement('div');
-    const addRecd = document.createElement('div');
-    const addRetd = document.createElement('div');
-    const addExpt = document.createElement('div');
-    const addActu = document.createElement('div');
-    const addDelete = document.createElement('div');
+    const li = document.createElement("li");
+    const addName = document.createElement("div");
+    const addOrg = document.createElement("div");
+    const addDemd = document.createElement("div");
+    const addRecd = document.createElement("div");
+    const addRetd = document.createElement("div");
+    const addExpt = document.createElement("div");
+    const addActu = document.createElement("div");
+    const addDelete = document.createElement("div");
 
     // UPDATE INNER TEXT
-    addName.textContent = 'Submitted By: ' + nameValue;
-    addOrg.textContent = 'From: ' + orgValue;
-    addDemd.textContent = 'Qty Demanded: ' + demandValue;
-    addRecd.textContent = 'Qty Received: ' + receiveValue;
-    addRetd.textContent = 'Qty Returned: ' + returnValue;
-    addExpt.textContent = 'Expected: ' + expectedValue;
-    addActu.textContent = 'Received: ' + actualValue;
-    addDelete.textContent = 'Delete';
+    addName.textContent = "Submitted By: " + nameValue;
+    addOrg.textContent = "From: " + orgValue;
+    addDemd.textContent = "Qty Demanded: " + demandValue;
+    addRecd.textContent = "Qty Received: " + receiveValue;
+    addRetd.textContent = "Qty Returned: " + returnValue;
+    addExpt.textContent = "Expected: " + expectedValue;
+    addActu.textContent = "Received: " + actualValue;
+    addDelete.textContent = "Delete";
 
     // UPDATE ATTRIBUTES
-    li.classList.add('appear');
-    addDelete.classList.add('delete');
-    addDelete.setAttribute('id', `${key - 1}`);
+    li.classList.add("appear");
+    addDelete.classList.add("delete");
+    addDelete.setAttribute("id", `${key - 1}`);
 
     // APPEND TO PARENT
     li.appendChild(addName);
@@ -143,60 +139,56 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // HIDE RECORDS
-  const hideBox = document.querySelector('.hide');
+  const hideBox = document.querySelector(".hide");
   let visible = true;
 
-  hideBox.addEventListener('click', (element) => {
-    hideBox.classList.add('noDelay');
+  hideBox.addEventListener("click", (element) => {
+    hideBox.classList.add("noDelay");
 
     // HIDE OR SHOW GRID ITEMS
     if (visible) {
       visible = false;
       list.style.display = "none";
-      hideBox.textContent = 'SHOW ALL RECORDS';
-    }
-    else {
+      hideBox.textContent = "SHOW ALL RECORDS";
+    } else {
       visible = true;
       list.style.display = "grid";
-      hideBox.textContent = 'HIDE ALL RECORDS';
+      hideBox.textContent = "HIDE ALL RECORDS";
     }
   });
 
   // SEARCH RECORDS
-  const find = forms['search']['searchList'];
+  const find = forms["search"]["searchList"];
 
   // PREVENT SUBMISSION
-  forms['search'].addEventListener('submit', (element) => {
+  forms["search"].addEventListener("submit", (element) => {
     element.preventDefault();
   });
 
   // SEARCH ITEMS
-  find.addEventListener('keyup', (element) => {
-
+  find.addEventListener("keyup", (element) => {
     // VARIABLE DECLARATION
     const term = element.target.value.toLowerCase();
-    const dataEntry = Array.from(list.getElementsByTagName('li'));
+    const dataEntry = Array.from(list.getElementsByTagName("li"));
 
     dataEntry.forEach((entry) => {
       const title = entry.textContent;
 
       // HIDE OR SHOW RESULTS
       if (title.toLowerCase().indexOf(term) != -1) {
-        entry.style.display = 'block';
-      }
-      else {
-        entry.style.display = 'none';
+        entry.style.display = "block";
+      } else {
+        entry.style.display = "none";
       }
     });
   });
-})
+});
 
 // COUNTER ANIMATION FOR NUMBERS
 let display = document.querySelectorAll(".num");
 let interval = 20000;
 
 display.forEach((element) => {
-
   // VARIABLE DECLARATION
   let end = parseInt(element.getAttribute("countUpto"));
   let upto = Math.floor(interval / end);
@@ -213,9 +205,7 @@ display.forEach((element) => {
 // SCROLL EVENTS
 let timerPart = document.querySelectorAll(".appear");
 window.onscroll = function fadeIn() {
-
-  timerPart.forEach(element => {
-
+  timerPart.forEach((element) => {
     // VARIABLE DECLARATION
     let size1 = element.getBoundingClientRect();
     let limit1 = size1.bottom;
@@ -231,4 +221,4 @@ window.onscroll = function fadeIn() {
       element.style.transition = "0.5s ease-in-out";
     }
   });
-}
+};
