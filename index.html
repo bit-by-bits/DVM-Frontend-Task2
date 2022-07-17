@@ -7,7 +7,7 @@
     <!-- META TAGS -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ADDED FONT FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,14 +90,14 @@
             <div class="databox">
               <input
                 autocomplete="off"
-                name="name"
+                id="name"
                 class="box"
                 type="text"
                 title="Name must lie within 20 characters."
                 pattern="[a-zA-Z0-9_ ]{1,20}"
                 required
               />
-              <label class="label"
+              <label for="name" class="label"
                 ><i class="fa-solid fa fa-user"></i> &nbsp;Your Name</label
               >
             </div>
@@ -105,14 +105,14 @@
             <div class="databox">
               <input
                 autocomplete="off"
-                name="id"
+                id="id"
                 class="box"
                 type="text"
                 title="Your Organisation ID has 202XABCD1234P format."
                 pattern="202\d[A-Z][A-Z\d][A-Z][A-Z]\d\d\d\dP"
                 required
               />
-              <label class="label"
+              <label for="id" class="label"
                 ><i class="fa-solid fa fa-id-card"></i> &nbsp;Your Org ID</label
               >
             </div>
@@ -120,14 +120,14 @@
             <div class="databox">
               <input
                 autocomplete="off"
-                name="phone"
+                id="phone"
                 class="box"
                 type="tel"
                 title="Registered Mobile Numbers follow XXXXX XXXXX formats."
                 pattern="[0-9]{10,10}"
                 required
               />
-              <label class="label"
+              <label for="phone" class="label"
                 >&nbsp;<i class="fa-solid fa fa-mobile"></i> &nbsp;Mobile
                 Number</label
               >
@@ -136,14 +136,14 @@
             <div class="databox">
               <input
                 autocomplete="off"
-                name="org"
+                id="org"
                 class="box"
                 type="text"
                 title="Your Organisation's Name must lie within 30 characters."
                 pattern="[a-zA-Z0-9_ ]{1,30}"
                 required
               />
-              <label class="label"
+              <label for="org" class="label"
                 ><i class="fa-solid fa fa-briefcase"></i> &nbsp;Organisation
                 Name</label
               >
@@ -174,12 +174,12 @@
               <input
                 autocomplete="off"
                 class="box"
-                name="demand"
+                id="demand"
                 type="number"
                 title="Mention your Order in Kgs."
                 required
               />
-              <label class="label"
+              <label for="demand" class="label"
                 ><i class="fa-solid fa fa-circle"></i>&nbsp; Quantity Demanded
                 (Kgs)</label
               >
@@ -189,12 +189,12 @@
               <input
                 autocomplete="off"
                 class="box"
-                name="receive"
+                id="receive"
                 type="number"
                 title="Mention net Order fulfilled in Kgs."
                 required
               />
-              <label class="label"
+              <label for="receive" class="label"
                 ><i class="fa-solid fa fa-chart-pie"></i>&nbsp; Quantity
                 Received (Kgs)</label
               >
@@ -204,12 +204,12 @@
               <input
                 autocomplete="off"
                 class="box"
-                name="return"
+                id="return"
                 type="number"
                 title="Mention net Order returned in Kgs."
                 required
               />
-              <label class="label"
+              <label for="return" class="label"
                 ><i class="fa-solid fa fa-chart-pie"></i>&nbsp; Quantity
                 Returned (Kgs)</label
               >
@@ -220,7 +220,7 @@
                 autocomplete="off"
                 placeholder="Expected Delivery Date"
                 class="box"
-                name="expected"
+                id="expected"
                 type="text"
                 onfocus="(this.type='date')"
                 onblur="(this.type='text')"
@@ -234,7 +234,7 @@
                 autocomplete="off"
                 placeholder="Actual Receiving Date"
                 class="box"
-                name="actual"
+                id="actual"
                 type="text"
                 onfocus="(this.type='date')"
                 onblur="(this.type='text')"
@@ -316,7 +316,7 @@
             <!-- SEARCH BAR -->
             <div class="find">
               <input
-                name="searchList"
+                id="searchList"
                 class="searchList"
                 type="text"
                 placeholder="Type Here"
@@ -396,7 +396,7 @@
   <script>
     setTimeout(function () {
       $(".loaderbg").fadeToggle();
-    }, 3500);
+    }, 2000);
   </script>
   <script
     src="https://kit.fontawesome.com/fd5018a833.js"
