@@ -221,4 +221,18 @@ window.onscroll = function fadeIn() {
       element.style.transition = "0.5s ease-in-out";
     }
   });
-};z
+};
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loaderbg");
+
+  setTimeout(() => {
+    loader.style.display = "none";
+    document.querySelector("body").style.overflowY = "scroll";
+  }, 1500);
+  
+  loader.style.animation = "fade-out 1.5s ease-out";
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  document.querySelector(".tyv").style.animation = "appear 3s ease-out";
+
+});
