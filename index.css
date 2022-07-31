@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Rubik", sans-serif;
@@ -72,7 +73,7 @@ html::-webkit-scrollbar-track {
 }
 
 /* PAGE LOADER */
-.loaderbg {
+.loader-back {
   position: fixed;
   top: 0;
   z-index: 101;
@@ -90,7 +91,7 @@ html::-webkit-scrollbar-track {
   background-color: black;
 }
 
-.loader {
+.loader-main {
   width: 150px;
   height: 150px;
   border-radius: 100%;
@@ -106,7 +107,7 @@ html::-webkit-scrollbar-track {
   animation: rotate 2s linear infinite;
 }
 
-.loader:before {
+.loader-main:before {
   content: "";
   position: absolute;
   top: 6px;
@@ -227,8 +228,8 @@ html::-webkit-scrollbar-track {
 
 @keyframes appear {
   0% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
   }
   100% {
     -webkit-transform: scale(1);
@@ -546,7 +547,6 @@ input:valid {
   padding: 0.4rem 0;
   text-align: center;
   border-radius: 4px;
-  cursor: pointer;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   -webkit-animation: gradient 3s ease infinite;
@@ -709,14 +709,14 @@ h2 {
 }
 
 /* HAMBURGER */
-.navMenu div {
+.navMenu a {
   display: none;
 }
 
 .click,
-.hamBurger,
-.hamBurger:before,
-.hamBurger:after {
+.ham-burger,
+.ham-burger:before,
+.ham-burger:after {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
@@ -731,22 +731,23 @@ h2 {
 
 .click {
   height: 1.5rem;
+  top: 3rem;
   background: none;
 }
 
-.hamBurger:before {
+.ham-burger:before {
   content: "";
   top: 10px;
   left: 0;
 }
 
-.hamBurger:after {
+.ham-burger:after {
   content: "";
   top: 20px;
   left: 0;
 }
 
-#check:checked + .click + .hamBurger {
+#check:checked + .click + .ham-burger {
   top: 35px;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -756,7 +757,7 @@ h2 {
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 
-#check:checked + .click + .hamBurger:before {
+#check:checked + .click + .ham-burger:before {
   width: 20px;
   top: -2px;
   left: 18px;
@@ -768,7 +769,7 @@ h2 {
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 
-#check:checked + .click + .hamBurger:after {
+#check:checked + .click + .ham-burger:after {
   width: 20px;
   top: 2px;
   left: 18px;
@@ -782,6 +783,7 @@ h2 {
 
 .navMenu {
   position: absolute;
+  cursor: default;
   width: 6rem;
   height: 6rem;
   background-image: -webkit-gradient(
@@ -796,8 +798,8 @@ h2 {
   border-bottom-right-radius: 100%;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  -webkit-animation: notChecked 0.2s both;
-  animation: notChecked 0.2s both;
+  -webkit-animation: not-checked 0.2s both;
+  animation: not-checked 0.2s both;
   display: -ms-grid;
   display: grid;
   grid-gap: 2rem;
@@ -811,13 +813,17 @@ h2 {
   align-items: center;
 }
 
-#check:checked + .click + .hamBurger + .navMenu {
-  -webkit-animation: yesChecked 0.2s linear both;
-  animation: yesChecked 0.2s linear both;
+#check:checked + .click + .ham-burger + .navMenu {
+  -webkit-animation: checked 0.2s linear both;
+  animation: checked 0.2s linear both;
   position: fixed;
 }
 
-@-webkit-keyframes yesChecked {
+#check:checked + .click + .ham-burger + .navMenu a {
+  display: block;
+}
+
+@-webkit-keyframes checked {
   100% {
     width: 100%;
     height: 100%;
@@ -825,7 +831,7 @@ h2 {
   }
 }
 
-@keyframes yesChecked {
+@keyframes checked {
   100% {
     width: 100%;
     height: 100%;
@@ -833,14 +839,14 @@ h2 {
   }
 }
 
-@-webkit-keyframes notChecked {
+@-webkit-keyframes not-checked {
   0% {
     width: 3000px;
     height: 3000px;
   }
 }
 
-@keyframes notChecked {
+@keyframes not-checked {
   0% {
     width: 3000px;
     height: 3000px;
@@ -856,20 +862,16 @@ h2 {
   display: none;
 }
 
-.ham {
-  position: fixed;
+.ham-wrapper {
   top: 0;
   left: 0;
   z-index: 1;
+  position: fixed;
 }
 
 /* NAVBAR MENU */
-.icons {
-  position: relative;
-}
 
-.logo {
-  opacity: 0;
+.icons {
   cursor: pointer;
 }
 
@@ -888,24 +890,23 @@ h2 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  cursor: pointer;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
 }
 
-.logo:checked ~ .icon {
+.icons:hover > .icon {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-reflect: below 1px
     linear-gradient(transparent, rgba(255, 255, 255, 0.6));
 }
 
-.logo:checked ~ .icon i {
+.icons:hover > .icon i {
   color: #00f3ff;
-  text-shadow: 0 0 15px #00f3ff, 0 0 25px #00f3ff;
-  -webkit-animation: color 5s linear infinite;
-  animation: color 5s linear infinite;
+  text-shadow: 0 0 60px #00f3ff, 0 0 60px #00f3ff;
+  -webkit-animation: color 3s linear infinite;
+  animation: color 3s linear infinite;
 }
 
 @-webkit-keyframes color {

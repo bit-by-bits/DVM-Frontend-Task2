@@ -223,16 +223,25 @@ window.onscroll = function fadeIn() {
   });
 };
 
+const body = document.querySelector("body");
+const ham = document.querySelector(".ham-wrapper");
+const loader = document.querySelector(".loader-back");
+
 window.addEventListener("load", () => {
-  const loader = document.querySelector(".loaderbg");
 
   setTimeout(() => {
+    body.style.overflowY = "scroll";
     loader.style.display = "none";
-    document.querySelector("body").style.overflowY = "scroll";
   }, 1500);
-  
+
   loader.style.animation = "fade-out 1.5s ease-out";
   document.body.scrollTop = document.documentElement.scrollTop = 0;
-  document.querySelector(".tyv").style.animation = "appear 3s ease-out";
-
+  document.querySelector(".tyv").style.animation = "appear 2s ease-out";
 });
+
+if (!document.getElementById("check").checked) {
+  ham.style.cursor = "pointer";
+  ham.addEventListener("click", () => {
+    document.querySelector(".click").click();
+  });
+}
