@@ -227,8 +227,8 @@ const body = document.querySelector("body");
 const ham = document.querySelector(".ham-wrapper");
 const loader = document.querySelector(".loader-back");
 
+// LOADER EVENTS
 window.addEventListener("load", () => {
-
   setTimeout(() => {
     body.style.overflowY = "scroll";
     loader.style.display = "none";
@@ -239,6 +239,7 @@ window.addEventListener("load", () => {
   document.querySelector(".tyv").style.animation = "appear 2s ease-out";
 });
 
+// HAMBURGER OPENING
 if (!document.getElementById("check").checked) {
   ham.style.cursor = "pointer";
   ham.addEventListener("click", () => {
