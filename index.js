@@ -80,11 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // VARIABLE DECLARATION
     const nameValue = addForm["name"].value;
     const orgValue = addForm["org"].value;
-    const demandValue = addForm["demand"].value;
+    let demandValue = addForm["demand"].value;
     const receiveValue = addForm["receive"].value;
     const returnValue = addForm["return"].value;
     const expectedValue = addForm["expected"].value;
     const actualValue = addForm["actual"].value;
+
+    demandValue = returnValue + receiveValue;
 
     // DATA FOR LOCAL STORAGE
     let addLocal = {
@@ -190,9 +192,9 @@ let interval = 20000;
 
 display.forEach((element) => {
   // VARIABLE DECLARATION
+  let start = 0;
   let end = parseInt(element.getAttribute("countUpto"));
   let upto = Math.floor(interval / end);
-  let start = 0;
 
   // SET COUNTER INTERVAL
   let counter = setInterval(() => {
@@ -214,35 +216,43 @@ window.onscroll = function fadeIn() {
     if (window.scrollY >= limit1) {
       element.style.opacity = "1";
       element.style.transform = "translateX(0)";
-      element.style.transition = "1.5s ease-in-out";
+      element.style.transition = "transform 1.5s ease-in-out";
     } else {
       element.style.opacity = "0";
       element.style.transform = "translateX(-50px)";
-      element.style.transition = "0.5s ease-in-out";
+      element.style.transition = "transform 0.5s ease-in-out";
     }
   });
 };
 
-const body = document.querySelector("body");
-const ham = document.querySelector(".ham-wrapper");
-const loader = document.querySelector(".loader-back");
-
 // LOADER EVENTS
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    body.style.overflowY = "scroll";
-    loader.style.display = "none";
-  }, 1500);
 
+const loader = document.querySelector(".loader-back");
+let body = document.querySelector("body").style;
+
+window.addEventListener("load", () => {
   loader.style.animation = "fade-out 1.5s ease-out";
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   document.querySelector(".tyv").style.animation = "appear 2s ease-out";
+
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  setTimeout(() => {
+    body.overflowY = "scroll";
+    loader.style.display = "none";
+  }, 1500);
 });
 
-// HAMBURGER OPENING
-if (!document.getElementById("check").checked) {
-  ham.style.cursor = "pointer";
-  ham.addEventListener("click", () => {
-    document.querySelector(".click").click();
-  });
-}
+// HAMBURGER EVENTS
+
+const checkbox = document.getElementById("check");
+
+checkbox.addEventListener("change", function () {
+  if (checkbox.checked) body.overflowY = "hidden";
+  else body.overflow = "scroll";
+});
+
+if (localStorage.length > 0)
+  document.getElementById("sample").style.display = "none";
