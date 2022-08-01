@@ -433,6 +433,7 @@ label {
 #search {
   color: red;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -466,6 +467,7 @@ label {
   color: white;
   line-height: 1.5rem;
   width: 0px;
+  margin-left: -3px;
   transition: 0.5s;
 }
 
@@ -503,6 +505,7 @@ label {
   -webkit-animation: gradient 3s ease infinite;
   animation: gradient 3s ease infinite;
   cursor: pointer;
+  border: 2px solid transparent;
   color: white;
 }
 
@@ -550,7 +553,7 @@ h2 {
   cursor: pointer;
   color: white;
   background: red;
-  box-shadow: 0 0 5px red, 0 0 20px red, 0 0 30px red, 0 0 50px red;
+  box-shadow: 0 0 10px red, 0 0 10px red, 0 0 10px red, 0 0 10px red;
   transition-delay: 1s;
 }
 
@@ -637,7 +640,6 @@ h2 {
 
 .click {
   height: 1.5rem;
-  top: 3rem;
   background: none;
 }
 
